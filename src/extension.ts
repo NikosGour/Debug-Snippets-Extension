@@ -14,6 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// 1. Selected text has priority
 		let text = doc.getText(sel);
+		text = text.trim();
 
 		// 2. If nothing selected, get word under cursor
 		if (!text) {
@@ -25,7 +26,6 @@ export function activate(context: vscode.ExtensionContext) {
 				return;
 			}
 		}
-
 		// Build debug line based on language
 		const logLine = buildDebugLine(lang, text) + "\n";
 
@@ -53,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
 function buildDebugLine(lang: string, variable: string): string {
 	switch (lang) {
 		case "go":
-			return `log.Debug("${variable}: %#v", ${variable})`;
+			return `log.Debug("${variable.replaceAll("\"", "\\\"")}: %#v", ${variable})`;
 
 		case "c":
 		case "cpp":
