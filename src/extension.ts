@@ -59,6 +59,9 @@ function buildDebugLine(lang: string, variable: string): string {
 		case "cpp":
 			return `printf("${variable}: %d\\n", ${variable});`;
 
+		case "vue":
+		case "vue-html":
+		case "html":
 		case "javascript":
 		case "typescript":
 			return `console.log("${variable}: ", ${variable});`;
