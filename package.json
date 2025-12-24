@@ -2,7 +2,7 @@
   "name": "debug-shortcuts",
   "displayName": "Debug Shortcuts",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "Ledrake",
   "engines": {
     "vscode": "^1.106.1"
